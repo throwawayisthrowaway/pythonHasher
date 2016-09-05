@@ -13,7 +13,8 @@ def hashall(folder):
     for f in os.listdir(folder):
         if os.path.isfile(os.path.join(folder,f)):
             try:
-                with open(os.path.join(folder, f)) as i:
+                with open(os.path.join(folder, f),'rb') as i:
+                #with open(f,'rb') as i:
                     buf = i.read()
                     try:
                       with open('hashlog.txt','a') as l:
@@ -27,7 +28,7 @@ def hashall(folder):
             hashall(os.path.join(folder,f))
   if os.path.isfile(folder):
     try:
-      with open(folder) as i:
+      with open(folder,'rb') as i:
         buf = i.read()
         try:
           with open('hashlog.txt','a') as l:
